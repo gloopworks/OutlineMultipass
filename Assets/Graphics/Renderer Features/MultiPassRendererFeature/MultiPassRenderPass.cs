@@ -48,8 +48,9 @@ public class MultiPassRenderPass : ScriptableRenderPass
         _ = RenderingUtils.ReAllocateIfNeeded(ref rtTempColor, descriptor, name: "_TemporaryColorTexture");
 
         RTHandle camTarget = renderingData.cameraData.renderer.cameraColorTargetHandle;
+        RTHandle depthTarget = renderingData.cameraData.renderer.cameraDepthTargetHandle;
 
-        ConfigureTarget(camTarget);
+        ConfigureTarget(camTarget, depthTarget);
         ConfigureClear(ClearFlag.Color, colorForClear);
     }
 
@@ -80,7 +81,7 @@ public class MultiPassRenderPass : ScriptableRenderPass
             DrawingSettings drawingSettings = CreateDrawingSettings(secondPassTags, ref renderingData, sortingCriteria);
             context.DrawRenderers(renderingData.cullResults, ref drawingSettings, ref filteringSettings);
 
-            material.SetFloat("_SampleRange", settings.SampleRange);
+            material.SetVector("_SampleRange", settings.SampleRange);
             material.SetColor("_OutlineColor", settings.OutlineColor);
             material.SetFloat("_Threshold", settings.Threshold);
             material.SetFloat("_Tightening", settings.Tightening);

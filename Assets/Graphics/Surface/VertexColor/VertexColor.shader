@@ -13,10 +13,6 @@ Shader "Unlit/VertexColor"
         {
             Name "UniversalForward"
             Tags{"LightMode" = "UniversalForward"}
-            Cull Back
-            Blend One Zero
-            ZTest LEqual
-            ZWrite On
 
             HLSLPROGRAM
             #pragma vertex Vertex
@@ -58,11 +54,6 @@ Shader "Unlit/VertexColor"
         {
             Name "VertexColor"
             Tags{"LightMode" = "VertexColor"}
-
-            Cull Back
-            Blend One Zero
-            ZTest LEqual
-            ZWrite On
 
             HLSLPROGRAM
             #pragma vertex Vertex

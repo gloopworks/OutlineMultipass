@@ -18,7 +18,7 @@ Shader "Screen/SobelOutline"
             #pragma vertex Vert
             #pragma fragment frag
 
-            float _SampleRange;
+            float2 _SampleRange;
 			float4 _OutlineColor;
 
             float _Threshold;
@@ -49,7 +49,7 @@ Shader "Screen/SobelOutline"
 				-1, -2, -1
 			};
 
-            float Outline(float2 UV, float sampleRange, float threshold, float tightening, float opacity)
+            float Outline(float2 UV, float2 sampleRange, float threshold, float tightening, float opacity)
             {
                 float2 sobelR = 0;
                 float2 sobelG = 0;
@@ -69,7 +69,7 @@ Shader "Screen/SobelOutline"
 
                 float maxLength = max(length(sobelR), max(length(sobelG), length(sobelB)));
                 
-                float outline = smoothstep(0, threshold, maxLength);
+                float outline = step(threshold, maxLength);
 
                 outline = pow(outline, tightening);
 
