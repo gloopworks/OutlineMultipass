@@ -21,7 +21,7 @@ MonoBehaviour:
     <ClearColor>k__BackingField: {r: 0, g: 0, b: 0, a: 0}
     <SampleRange>k__BackingField: {x: 0.0006, y: 0.0012}
     <OutlineColor>k__BackingField: {r: 0, g: 0, b: 0, a: 1}
-    <Threshold>k__BackingField: 0.05
+    <Threshold>k__BackingField: 1
     <Tightening>k__BackingField: 1
   shader: {fileID: 4800000, guid: c18d128bcee8e944981a6ecff37e438e, type: 3}
 --- !u!114 &11400000

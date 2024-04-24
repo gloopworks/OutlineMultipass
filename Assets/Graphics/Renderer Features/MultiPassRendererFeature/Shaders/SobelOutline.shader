@@ -69,7 +69,7 @@ Shader "Screen/SobelOutline"
 
                 float maxLength = max(length(sobelR), max(length(sobelG), length(sobelB)));
                 
-                float outline = step(threshold, maxLength);
+                float outline = smoothstep(0, threshold, maxLength);
 
                 outline = pow(outline, tightening);
 

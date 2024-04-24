@@ -99,7 +99,7 @@ public class MultiPassRenderPass : ScriptableRenderPass
 
     public void Dispose()
     {
-        rtTempColor.Release();
+        rtTempColor?.Release();
         rtBaseColor?.Release();
     }
 }

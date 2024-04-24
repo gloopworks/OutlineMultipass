@@ -2,7 +2,8 @@ fileFormatVersion: 2
 guid: f386c0ebbff2928478fff784f5128d3d
 ShaderImporter:
   externalObjects: {}
-  defaultTextures: []
+  defaultTextures:
+  - _CrossTexture: {instanceID: 0}
   nonModifiableTextures: []
   userData: 
   assetBundleName: 
