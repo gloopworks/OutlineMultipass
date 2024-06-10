@@ -25,7 +25,7 @@ Shader "Screen/SobelOutline"
             float _Tightening;
 
             SamplerState sampler_point_clamp;
-            TEXTURE2D(_VertexColorTexture);
+            TEXTURE2D(_OutlineMapsTexture);
             TEXTURE2D(_BaseColorTexture);
 
             static float2 samplePoints[9] =
@@ -58,7 +58,7 @@ Shader "Screen/SobelOutline"
                 [unroll]
                 for (int i = 0; i < 9; i++)
                 {
-                    float3 color = _VertexColorTexture.Sample(sampler_point_clamp, UV + (samplePoints[i] * sampleRange)).rgb;
+                    float3 color = _OutlineMapsTexture.Sample(sampler_point_clamp, UV + (samplePoints[i] * sampleRange)).rgb;
 
                     float2 kernel = float2(sobelXMatrix[i], sobelYMatrix[i]);
 

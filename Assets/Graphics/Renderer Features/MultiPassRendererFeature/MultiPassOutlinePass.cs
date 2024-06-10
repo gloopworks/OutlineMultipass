@@ -61,22 +61,25 @@ public class MultiPassOutlinePass : ScriptableRenderPass
         RTHandle camTarget = renderingData.cameraData.renderer.cameraColorTargetHandle;
         SortingCriteria sortingCriteria = renderingData.cameraData.defaultOpaqueSortFlags;
 
-        using (new ProfilingScope(cmd, new ProfilingSampler("Vertex Color Pass")))
+        using (new ProfilingScope(cmd, new ProfilingSampler("Draw Outline Maps")))
         {
             context.ExecuteCommandBuffer(cmd);
             cmd.Clear();
+
+            cmd.SetGlobalTexture("_BaseColorTexture", rtBaseColor);
 
             DrawingSettings drawingSettings = CreateDrawingSettings(firstPassTags, ref renderingData, sortingCriteria);
             context.DrawRenderers(renderingData.cullResults, ref drawingSettings, ref filteringSettings);
 
             Blitter.BlitCameraTexture(cmd, camTarget, rtBaseColor);
-            cmd.SetGlobalTexture("_BaseColorTexture", rtBaseColor);
         }
 
-        using (new ProfilingScope(cmd, new ProfilingSampler("Outline Pass")))
+        using (new ProfilingScope(cmd, new ProfilingSampler("Draw Objects and Outlines")))
         {
             context.ExecuteCommandBuffer(cmd);
             cmd.Clear();
+
+            cmd.SetGlobalTexture("_OutlineMapsTexture", camTarget);
 
             DrawingSettings drawingSettings = CreateDrawingSettings(secondPassTags, ref renderingData, sortingCriteria);
             context.DrawRenderers(renderingData.cullResults, ref drawingSettings, ref filteringSettings);
@@ -85,8 +88,6 @@ public class MultiPassOutlinePass : ScriptableRenderPass
             material.SetColor("_OutlineColor", settings.OutlineColor);
             material.SetFloat("_Threshold", settings.Threshold);
             material.SetFloat("_Tightening", settings.Tightening);
-
-            cmd.SetGlobalTexture("_VertexColorTexture", camTarget);
 
             Blitter.BlitCameraTexture(cmd, camTarget, rtTempColor, material, 0);
             Blitter.BlitCameraTexture(cmd, rtTempColor, camTarget);

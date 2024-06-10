@@ -1,4 +1,4 @@
-Shader "Unlit/VertexColor"
+Shader "Outlined/VertexColorCrosshatch"
 {
     Properties
     {
@@ -101,8 +101,8 @@ Shader "Unlit/VertexColor"
 
         Pass
         {
-            Name "VertexColor"
-            Tags{"LightMode" = "VertexColor"}
+            Name "OutlineMaps"
+            Tags{"LightMode" = "OutlineMaps"}
 
             HLSLPROGRAM
             #pragma vertex Vertex

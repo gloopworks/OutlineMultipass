@@ -17,7 +17,7 @@ MonoBehaviour:
     <ShowInSceneView>k__BackingField: 1
     <RenderPassEvent>k__BackingField: 300
     <LightModePasses>k__BackingField:
-    - VertexColor
+    - OutlineMaps
     <ClearColor>k__BackingField: {r: 0, g: 0, b: 0, a: 0}
     <SampleRange>k__BackingField: {x: 0.0006, y: 0.0012}
     <OutlineColor>k__BackingField: {r: 0, g: 0, b: 0, a: 1}
@@ -63,10 +63,10 @@ MonoBehaviour:
   m_AssetVersion: 2
   m_OpaqueLayerMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 0
   m_TransparentLayerMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 0
   m_DefaultStencilState:
     overrideStencilState: 0
     stencilReference: 0
