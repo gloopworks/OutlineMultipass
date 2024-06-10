@@ -4,9 +4,9 @@ using UnityEngine.Rendering.Universal;
 
 using System.Collections.Generic;
 
-public class MultiPassRenderPass : ScriptableRenderPass
+public class MultiPassOutlinePass : ScriptableRenderPass
 {
-    private MultiPassSettings settings;
+    private MultiPassOutlineSettings settings;
     private Color colorForClear;
 
     private List<ShaderTagId> firstPassTags;
@@ -19,7 +19,7 @@ public class MultiPassRenderPass : ScriptableRenderPass
 
     private Material material;
 
-    public MultiPassRenderPass(string[] tags, MultiPassSettings settings, Material material)
+    public MultiPassOutlinePass(string[] tags, MultiPassOutlineSettings settings, Material material)
     {
         filteringSettings = FilteringSettings.defaultValue;
         firstPassTags = new List<ShaderTagId>();

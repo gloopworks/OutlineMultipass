@@ -3,19 +3,19 @@ using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 
-public class MultiPassRendererFeature : ScriptableRendererFeature
+public class MultiPassOutlineFeature : ScriptableRendererFeature
 {
-    [SerializeField] private MultiPassSettings settings;
+    [SerializeField] private MultiPassOutlineSettings settings;
     [SerializeField] private Shader shader;
     private Material material;
 
-    private MultiPassRenderPass mainPass;
+    private MultiPassOutlinePass mainPass;
     
     public override void Create()
     {
         material = CoreUtils.CreateEngineMaterial(shader);
 
-        mainPass = new MultiPassRenderPass(settings.LightModePasses, settings, material)
+        mainPass = new MultiPassOutlinePass(settings.LightModePasses, settings, material)
         {
             renderPassEvent = settings.RenderPassEvent
         };

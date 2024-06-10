@@ -3,7 +3,7 @@ using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 
 [System.Serializable]
-public class MultiPassSettings
+public class MultiPassOutlineSettings
 {
     [field: SerializeField] public bool ShowInSceneView { get; set; }
     [field: SerializeField] public RenderPassEvent RenderPassEvent { get; set; } = RenderPassEvent.AfterRenderingOpaques;
