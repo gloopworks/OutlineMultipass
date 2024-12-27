@@ -15,7 +15,7 @@ MonoBehaviour:
   m_Active: 1
   settings:
     <ShowInSceneView>k__BackingField: 1
-    <RenderPassEvent>k__BackingField: 300
+    <RenderPassEvent>k__BackingField: 250
     <LightModePasses>k__BackingField:
     - OutlineMaps
     <ClearColor>k__BackingField: {r: 0, g: 0, b: 0, a: 0}

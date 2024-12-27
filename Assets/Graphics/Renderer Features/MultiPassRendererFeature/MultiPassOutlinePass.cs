@@ -37,6 +37,8 @@ public class MultiPassOutlinePass : ScriptableRenderPass
         this.settings = settings;
         this.material = material;
         colorForClear = settings.ClearColor;
+
+        filteringSettings = new FilteringSettings(RenderQueueRange.opaque);
     }
 
     public override void OnCameraSetup(CommandBuffer cmd, ref RenderingData renderingData)
